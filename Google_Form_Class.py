@@ -2,13 +2,14 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from time import sleep
+import os
 
 
 class GoogleBot:
     def __init__(self):
         self.my_service = Service("C:/Zoo_Development/chromedriver.exe")
         self.driver = webdriver.Chrome(service=self.my_service)
-        self.google_form = "https://forms.gle/G2MwQkpo3pbV227N8"
+        self.google_form = os.environ.get("MY_FORM_ADDRESS")
 
     def start_filling(self):
         self.driver.get(self.google_form)
