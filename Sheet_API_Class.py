@@ -1,15 +1,16 @@
 import requests
+import os
 
 
 class SheetApi:
     def __init__(self):
-        self.my_token = "Bearer Love"
+        self.my_token = os.environ.get("MY_TOKEN")
         self.my_header = {
             "Authorization": self.my_token
         }
-        self.my_id = "f79e4767ff5cb4f9d47ed14cac769be5"
-        self.my_project = "searchRentingHouse (responses)"
-        self.my_sheet = "formResponses1"
+        self.my_id = os.environ.get("MY_ID")
+        self.my_project = os.environ.get("MY_PROJECT")
+        self.my_sheet = os.environ.get("MY_SHEET")
         self.my_endpoint = f"https://api.sheety.co/{self.my_id}/{self.my_project}/{self.my_sheet}"
 
     def get_data(self):
